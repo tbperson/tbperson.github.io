@@ -5,3 +5,10 @@ p,h1,h2{
 body{
     background-image: url('planet.jpg');
 }
+.site_link{
+    width: 5%;
+    height: auto;
+    margin: 0 auto;
+    font-size: 0.8em;
+    background-color: #333;
+}
