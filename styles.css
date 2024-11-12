@@ -7,7 +7,7 @@ body{
 }
 .site_link{
     width: 5vw;
-    height: auto;
+    height: 5vh;
     margin: 0 auto;
     font-size: 0.8em;
     background-color: #333;
