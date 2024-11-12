@@ -13,4 +13,6 @@ div.top_bar{
     height: 5vh;
     top: 0;
     font-size: 1.5em;
+    position: fixed;
+    width: 100%;
 }
