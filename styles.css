@@ -1,6 +1,10 @@
-p,h1,h2,h3{
+p,h1,h2{
     color: white;
     font-family: 'Comic Sans MS',  sans-serif;
+}
+h3{
+    color: white;
+    text-align: center;
 }
 body{
     background-color:#0B1215;
