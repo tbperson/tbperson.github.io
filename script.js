@@ -1,6 +1,6 @@
 function update_time() {
     let currentTime = new Date().toLocaleString();
-    document.querySelector('div.top_bar h2').textContent = currentTime;
+    document.querySelector('topnav h2').textContent = currentTime;
 }
 
 
