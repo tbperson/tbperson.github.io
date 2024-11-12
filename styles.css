@@ -6,7 +6,7 @@ body{
     background-image: url('planet.jpg');
 }
 .site_link{
-    width: 5%;
+    width: 5vw;
     height: auto;
     margin: 0 auto;
     font-size: 0.8em;
