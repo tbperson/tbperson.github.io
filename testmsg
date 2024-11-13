@@ -1,0 +1,8 @@
+DELAY 500
+STRING Siri, open Messages
+ENTER
+DELAY 1000
+TAB
+ENTER
+STRING test
+ENTER
