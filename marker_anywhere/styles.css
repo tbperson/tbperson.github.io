@@ -29,4 +29,5 @@
     padding: 10px;
     border: 1px solid black;
     width: auto;
+    z-index: 999;
 }
