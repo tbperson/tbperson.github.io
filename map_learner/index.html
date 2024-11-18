@@ -236,7 +236,6 @@
                 layer.on('click', function() {
                     if (feature.properties.name === targetCountry) {
                         alert("Correct! You found " + targetCountry);
-                        fillColor: feature.properties.name === targetCountry ? 'blue' : 'grey',
                     } else {
                         alert("That's not " + targetCountry + ". Try again!");
                     }
