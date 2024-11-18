@@ -23,14 +23,12 @@
     border-radius: 5px;
 }
 #search {
-    position: absolute;
+    position: flex;
     top: 0px; 
     left: 0px;
     background: white;
     padding: 10px;
     border: 1px solid black;
-    z-index: 1000;
     width: 100%;
     width: auto;
-    display: inline-block;
 }
