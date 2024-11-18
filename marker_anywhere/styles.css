@@ -30,6 +30,6 @@
     padding: 10px;
     border: 1px solid black;
     width: 100%;
-    width: auto;
+    height: 100%;
     z-index: 1000;
 }
