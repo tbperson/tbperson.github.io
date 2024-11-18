@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- HERE JavaScript Libs & Style Sheets-->
+    <link rel="stylesheet" type="text/css" href="https://js.api.here.com/v3/3.1/mapsjs-ui.css" />
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-core.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-service.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-ui.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-mapevents.js"></script>
+    <!-- HERE JavaScript Libs & Style Sheets end-->
+    <title>Marker anywhere</title>
+    <style>
+        #mapContainer {
+            width: 100%;
+            height: 100vh;
+        }
+        #popup {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: white;
+            padding: 10px;
+            border: 1px solid black;
+            z-index: 1000;
+        }
+        #search {
+            position: absolute;
+            top: 70px; /* Adjusted to start where popup ends */
+            left: 10px;
+            background: white;
+            padding: 10px;
+            border: 1px solid black;
+            z-index: 1000;
+            width: 35%;
+            height: 35%;
+        }
+    </style>
+</head>
+
+<body>
+    <!--In the div HERE Map will be rendered-->
+    <div id="mapContainer"></div>
+    <div id="popup">
+        <label for="lat">Latitude:</label>
+        <input type="text" id="lat" value="19.741755">
+        <label for="lng">Longitude:</label>
+        <input type="text" id="lng" value="-155.844437">
+        <button onclick="updateMarker()">Update Marker</button>
+        <button onclick="toggle_site()">Toggle location</button>
+    </div>
+    <div id="search">
+        <label for="searchInput">Search:</label>
+        <iframe src="https://gps-coordinates.org/" width="100%" height="100%"></iframe>
+        
+    </div>
+    <script>
+        //Step 1: initialize communication with the platform
+        // Replace variable YOUR_API_KEY with your own apikey
+        var platform = new H.service.Platform({
+            apikey: 'XK5A-ktpolhuDh2J_f1bHGYKRC8E_AspFlvBbGC08lU'
+        });
+        var defaultLayers = platform.createDefaultLayers();
+        //Step 2: initialize a map - this map is centered over Europe
+        var map = new H.Map(document.getElementById('mapContainer'),
+            defaultLayers.vector.normal.map,
+            {
+                center: { lat: 50, lng: 5 },
+                zoom: 4,
+                pixelRatio: window.devicePixelRatio || 1
+            }
+        );
+        // add a resize listener to make sure that the map occupies the whole container
+        window.addEventListener('resize', () => map.getViewPort().resize());
+        //Step 3: make the map interactive
+        // MapEvents enables the event system
+        // Behavior implements default interactions for pan/zoom (also on mobile touch environments)
+        var behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
+
+        // Create the default UI components
+        var ui = H.ui.UI.createDefault(map, defaultLayers);
+
+        // Marker code goes here
+        var LocationOfMarker = { lat: 19.741755, lng: -155.844437 };
+
+        // optionally - resize a larger PNG image to a specific size
+        var pngIcon = new H.map.Icon('bomb.png', { size: { w: 56, h: 56 } });
+
+        // Create a marker using the previously instantiated icon:
+        var marker = new H.map.Marker(LocationOfMarker, { icon: pngIcon });
+
+        // Add the marker to the map:
+        map.addObject(marker);
+        
+        // Optionally, 
+        //Show the marker in the center of the map
+        map.setCenter(LocationOfMarker)
+
+        //Zooming so that the marker can be clearly visible
+        map.setZoom(8)
+
+        function updateMarker() {
+            var lat = parseFloat(document.getElementById('lat').value);
+            var lng = parseFloat(document.getElementById('lng').value);
+            var newLocation = { lat: lat, lng: lng };
+            marker.setGeometry(newLocation);
+            map.setCenter(newLocation);
+            map.setZoom(8);
+        }
+        function toggle_site() {
+            var x = document.getElementById("search");
+            if (x.style.display === "none") {
+            x.style.display = "block";
+            } else {
+            x.style.display = "none";
+            }
+        }
+    </script>
+</body>
+
+</html>
