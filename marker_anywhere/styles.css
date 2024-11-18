@@ -28,6 +28,7 @@
     background: white;
     padding: 10px;
     border: 1px solid black;
-    width: auto;
+    width: 38vw;
+    height: 45vh;
     z-index: 999;
 }
