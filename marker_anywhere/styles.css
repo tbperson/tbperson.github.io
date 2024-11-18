@@ -23,7 +23,7 @@
     border-radius: 5px;
 }
 #search {
-    position: flex;
+    position: absolute;
     top: 0px; 
     left: 0px;
     background: white;
