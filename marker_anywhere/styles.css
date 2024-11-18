@@ -15,8 +15,7 @@
     margin: 0;
     padding: 0;
     border: none;
-    background: none;
-    color: green;
+    background: green;
     border-radius: 5px;
 }
 #search {
