@@ -226,7 +226,7 @@
         L.geoJSON(countries, {
             style: function(feature) {
                 return {
-                    fillColor: feature.properties.name === targetCountry ? 'blue' : 'grey',
+                    fillColor: feature.properties.name === targetCountry ? 'grey' : 'grey',
                     weight: 1,
                     color: 'white',
                     fillOpacity: 0.5
@@ -236,6 +236,7 @@
                 layer.on('click', function() {
                     if (feature.properties.name === targetCountry) {
                         alert("Correct! You found " + targetCountry);
+                        fillColor: feature.properties.name === targetCountry ? 'blue' : 'grey',
                     } else {
                         alert("That's not " + targetCountry + ". Try again!");
                     }
