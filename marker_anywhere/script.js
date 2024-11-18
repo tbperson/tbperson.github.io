@@ -48,8 +48,8 @@ function toggle_site() {
     }
 }
 function makeSearchBarDraggable() {
-    var searchBar = document.getElementById('search');
-    var offsetX, offsetY;
+    let searchBar = document.getElementById('search');
+    let offsetX, offsetY;
 
     searchBar.onmousedown = function(event) {
         offsetX = event.clientX - searchBar.getBoundingClientRect().left;
