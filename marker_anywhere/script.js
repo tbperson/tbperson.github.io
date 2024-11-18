@@ -69,4 +69,4 @@ function makeSearchBarDraggable() {
     }
 }
 
-makeSearchBarDraggable();
+//makeSearchBarDraggable();
