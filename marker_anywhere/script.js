@@ -47,3 +47,26 @@ function toggle_site() {
     x.style.display = "none";
     }
 }
+function makeSearchBarDraggable() {
+    var searchBar = document.getElementById('search');
+    var offsetX, offsetY;
+
+    searchBar.onmousedown = function(event) {
+        offsetX = event.clientX - searchBar.getBoundingClientRect().left;
+        offsetY = event.clientY - searchBar.getBoundingClientRect().top;
+        document.onmousemove = onMouseMove;
+        document.onmouseup = onMouseUp;
+    };
+
+    function onMouseMove(event) {
+        searchBar.style.left = event.clientX - offsetX + 'px';
+        searchBar.style.top = event.clientY - offsetY + 'px';
+    }
+
+    function onMouseUp() {
+        document.onmousemove = null;
+        document.onmouseup = null;
+    }
+}
+
+makeSearchBarDraggable();
