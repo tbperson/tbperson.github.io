@@ -32,4 +32,6 @@
     z-index: 1000;
     width: 35%;
     height: 35%;
+    width: auto;
+    display: inline-block;
 }
