@@ -23,12 +23,11 @@
 }
 #search {
     position: absolute;
-    top:0px; 
+    top:10vh; 
     left: 0px;
     background: white;
     padding: 10px;
     border: 1px solid black;
     width: 38vw;
     height: 45vh;
-    z-index: 999;
 }
