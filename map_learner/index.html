@@ -15,11 +15,18 @@
             border-radius: 5px;
             font-size: 16px;
         }
+        .score {
+            background: white;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 16px;
+        }
     </style>
 </head>
 <body>
     <h1>Learn countries</h1>
     <div class="info" id="info">Find: <span id="country-name">United States</span></div>
+    <div class="score" id="score">Score: <span id="score-value">0</span></div>
     <div id="map"></div>
 
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
@@ -219,7 +226,7 @@
 
         function play(targetCountry){
         document.getElementById('country-name').textContent = targetCountry;
-
+        document.getElementById('score-count').textContent = "Score: " + score;
         // Add GeoJSON layer to the map
         L.geoJSON(countries, {
             style: function(feature) {
@@ -233,6 +240,7 @@
             onEachFeature: function(feature, layer) {
                 layer.on('click', function() {
                     if (feature.properties.name === targetCountry) {
+                        score ++;
                         map.eachLayer(function(layer) {
                             if (layer instanceof L.GeoJSON) {
                                 map.removeLayer(layer);
@@ -243,6 +251,7 @@
 
                     } else {
                         alert("That's not " + targetCountry + ". Try again!");
+                        score --;
                         layer.setStyle({
                             fillColor: 'red'
                         });
