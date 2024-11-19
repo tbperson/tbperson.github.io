@@ -297,13 +297,13 @@
                         });
                         alert("Correct! You found " + targetCountry);
                         let good_audio = new Audio('right.mp3');
-                        audio.play();
+                        good_audio.play();
                         play(generateCountry());
 
                     } else {
                         alert("That's not " + targetCountry + ". Try again!");
                         let bad_audio = new Audio('wrong.mp3');
-                        audio.play();
+                        bad_audio.play();
                         score -= 0.5;
                         document.getElementById('score-value').textContent = "Score: " + score;
                         layer.setStyle({
