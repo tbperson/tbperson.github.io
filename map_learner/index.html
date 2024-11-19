@@ -16,7 +16,7 @@
         }
         .top-bar {
             width: 100%;
-            background: white;
+            background: gray;
             padding: 10px;
             border-radius: 5px;
             font-size: 16px;
@@ -26,6 +26,9 @@
             z-index: 1000;
             display: flex;
             justify-content: space-between;
+        }
+        .top-bar h2{
+            text-align: center;
         }
         .info, .score {
             background: white;
@@ -40,6 +43,7 @@
         <h1>Learn countries</h1>
         <div class="top-bar">
             <div class="info" id="info">Find: <span id="country-name">United States</span></div>
+            <h2>Learn where different countries are!</h2>
             <div class="score" id="score">Score: <span id="score-value">0</span></div>
         </div>
         <div id="map"></div>
