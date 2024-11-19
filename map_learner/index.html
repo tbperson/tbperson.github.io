@@ -227,7 +227,7 @@
 
         function play(targetCountry){
         document.getElementById('country-name').textContent = targetCountry;
-        document.getElementById('score-count').textContent = "Score: " + score;
+        document.getElementById('score-value').textContent = "Score: " + score;
         // Add GeoJSON layer to the map
         L.geoJSON(countries, {
             style: function(feature) {
@@ -262,7 +262,7 @@
         }).addTo(map);
     }
 
-    //let score = 0;
+    let score = 0;
     play(generateCountry());
     </script>
 </body>
