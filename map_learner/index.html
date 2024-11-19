@@ -233,8 +233,10 @@
             onEachFeature: function(feature, layer) {
                 layer.on('click', function() {
                     if (feature.properties.name === targetCountry) {
-                        layer.setStyle({
-                            fillColor: 'grey'
+                        map.eachLayer(function(layer) {
+                            if (layer instanceof L.GeoJSON) {
+                                map.removeLayer(layer);
+                            }
                         });
                         alert("Correct! You found " + targetCountry);
                         play(generateCountry());
