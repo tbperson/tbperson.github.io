@@ -233,8 +233,12 @@
             onEachFeature: function(feature, layer) {
                 layer.on('click', function() {
                     if (feature.properties.name === targetCountry) {
+                        layer.setStyle({
+                            fillColor: 'grey'
+                        });
                         alert("Correct! You found " + targetCountry);
                         play(generateCountry());
+
                     } else {
                         alert("That's not " + targetCountry + ". Try again!");
                         layer.setStyle({
