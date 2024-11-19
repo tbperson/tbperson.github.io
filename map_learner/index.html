@@ -219,7 +219,7 @@
         };
 
         // Target country to find
-        var targetCountry = "Taiwan";
+        let targetCountry = countries.features[Math.floor(Math.random() * countries.features.length)].properties.name;
         document.getElementById('country-name').textContent = targetCountry;
 
         // Add GeoJSON layer to the map
