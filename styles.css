@@ -27,3 +27,29 @@ body{
     position: absolute;
     margin: 0 auto;
 }
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="styles.css">
+        <meta charset="UTF-8">
+        <title>Landing Page</title>
+    </head>
+    <body>
+        <div id="topnav">
+            <h3>tbperson@github</h3>
+            <h2></h2>
+        </div>
+        <script src="script.js"></script>
+    </body>
+</html>
+
+
+function update_time() {
+    let currentTime = new Date().toLocaleString();
+    document.querySelector('#topnav h2').textContent = currentTime;
+}
+
+//Run the clock every 500ms
+setInterval(update_time, 500);
