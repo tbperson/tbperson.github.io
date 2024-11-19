@@ -1,7 +1,9 @@
+//Function to update the time on the topnav
 function update_time() {
     let currentTime = new Date().toLocaleString();
     document.querySelector('#topnav h2').textContent = currentTime;
 }
+//Function to process the input from the terminal
 function process_line(line) {
     if (line === "clear") {
         for (let i = 1; i <= 100; i++) {
@@ -10,6 +12,7 @@ function process_line(line) {
         }
         document.getElementById('textarea1').focus();
     } 
+    //If the line starts with "echo ", the message is printed to the next line
     if (line.startsWith("echo ")) {
         let message = line.substring(5);
         for (let i = 1; i <= 100; i++) {
@@ -24,6 +27,7 @@ function process_line(line) {
         window.close();
     }
 
+    //If the line starts with "cd ", the user is redirected to the specified path within the github, if it exists
     if (line.startsWith("cd ")) {
         try {
             let path = line.substring(3);
@@ -38,6 +42,7 @@ function process_line(line) {
             }
         }
         }
+        
     if (line === "help"){
         let help = "Commands available: |" +
         "echo <message> - prints the message |" +
@@ -51,6 +56,40 @@ function process_line(line) {
                 break;
             }
         }
+    }
+    if (line === "about") {
+        let about = "This terminal allows you to navigate my GitHub Pages. You can use commands like 'cd <path>' to navigate to different directories, 'ls' to list directories, 'echo <message>' to print a message, 'clear' to clear the terminal, 'exit' to close the terminal, 'help' to display available commands, and 'contact' to get my contact information.";
+        let aboutLines = about.split(' ').reduce((acc, word, index) => {
+            if (index % 30 === 0) acc.push([]);
+            acc[acc.length - 1].push(word);
+            return acc;
+        }, []).map(line => line.join(' '));
+        
+        for (let i = 1; i <= 100; i++) {
+            if (document.getElementById(`textarea${i}`).value === line) {
+                aboutLines.forEach((aboutLine, index) => {
+                    document.getElementById(`textarea${i + 1 + index}`).value = aboutLine;
+                    document.getElementById(`textarea${i + 1 + index}`).readOnly = true;
+                });
+                document.getElementById(`textarea${i + 1 + aboutLines.length}`).focus();
+                break;
+            }
+        }
+    }
+    if (line==="contact"){
+        let contactInfo = "You can reach me at: https://github.com/tbperson";
+        for (let i = 1; i <= 100; i++) {
+            if (document.getElementById(`textarea${i}`).value === line) {
+                document.getElementById(`textarea${i + 1}`).value = contactInfo;
+                document.getElementById(`textarea${i + 1}`).readOnly = true;
+                break;
+            }
+            document.getElementById(`textarea${i + 1 + aboutLines.length}`).focus();
+            break;
+        }
+    }
+    if(line==="sl"){
+        jumpscare();
     }
     if (line === "ls") {
         for (let i = 1; i <= 100; i++) {
@@ -96,10 +135,19 @@ function process_line(line) {
                     }
                 }
             });
+
     }
     }
 
-
+//Jumpscare function when user misspells "ls"
+function jumpscare() {
+    document.getElementById('terminal').style.display = 'none';
+    document.getElementById('jumpscare').style.display = 'block';
+    setTimeout(() => {
+        document.getElementById('jumpscare').style.display = 'none';
+        document.getElementById('terminal').style.display = 'block';
+    }, 5000);
+}
 
 
 //Run the clock every 500ms
@@ -115,12 +163,16 @@ for (let i = 1; i <= 100; i++) {
                 alert("You have reached the maximum number of lines, the terminal is being cleared");
                 process_line("clear");
             }
+            
             event.preventDefault();
             textarea.readOnly = true;
             if (i < 100) {
                 document.getElementById(`textarea${i + 1}`).focus();
             }
             process_line(textarea.value);
+            setTimeout(() => {
+                textarea.value = "> " + textarea.value;
+            }, 500);
         }
     });
 }
