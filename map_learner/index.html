@@ -234,15 +234,18 @@
                 layer.on('click', function() {
                     if (feature.properties.name === targetCountry) {
                         map.eachLayer(function(layer) {
+                            if (layer instanceof L.GeoJSON) {
+                                map.removeLayer(layer);
+                            }
                         });
                         alert("Correct! You found " + targetCountry);
                         play(generateCountry());
 
                     } else {
                         alert("That's not " + targetCountry + ". Try again!");
-                        //layer.setStyle({
-                        //    fillColor: 'red'
-                        //});
+                        layer.setStyle({
+                            fillColor: 'red'
+                        });
                     }
                 });
             }
