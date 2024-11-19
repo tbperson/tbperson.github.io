@@ -24,5 +24,6 @@ body{
     margin-right: 20px;
 }
 #topnav h3{
+    position: absolute;
     margin: 0 auto;
 }
