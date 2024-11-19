@@ -253,6 +253,7 @@
                     } else {
                         alert("That's not " + targetCountry + ". Try again!");
                         score --;
+                        document.getElementById('score-value').textContent = "Score: " + score;
                         layer.setStyle({
                             fillColor: 'red'
                         });
