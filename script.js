@@ -43,16 +43,13 @@ function process_line(line) {
         }
         }
         
-    if (line === "help"){
-        let help = "Commands available: |" +
-        "echo <message> - prints the message |" +
-        "clear - clears the terminal |" +
-        "exit - closes the terminal |" +
-        "help - displays this message";
+    if (line === "help") {
+        let helpMessage = "Available commands: clear, echo <message>, exit, cd <path>, help, about, contact, sl, ls";
         for (let i = 1; i <= 100; i++) {
             if (document.getElementById(`textarea${i}`).value === line) {
-                document.getElementById(`textarea${i + 1}`).value = help;
+                document.getElementById(`textarea${i + 1}`).value = helpMessage;
                 document.getElementById(`textarea${i + 1}`).readOnly = true;
+                document.getElementById(`textarea${i + 2}`).focus();
                 break;
             }
         }
