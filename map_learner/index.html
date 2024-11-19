@@ -233,6 +233,9 @@
                         alert("Correct! You found " + targetCountry);
                     } else {
                         alert("That's not " + targetCountry + ". Try again!");
+                        layer.setStyle({
+                            fillColor: 'red'
+                        });
                     }
                 });
             }
