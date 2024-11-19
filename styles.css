@@ -19,10 +19,10 @@ body{
     width: 100%;
     font-family: 'Comic Sans MS',  sans-serif;
 }
-.topnav h2{
+#topnav h2{
     margin-left: auto;
     margin-right: 20px;
 }
-.topnav h3{
+#topnav h3{
     margin: 0 auto;
 }
