@@ -6,6 +6,7 @@ function update_time() {
 //Function to process the input from the terminal
 function process_line(line) {
     if (line === "clear") {
+        
         for (let i = 1; i <= 100; i++) {
             document.getElementById(`textarea${i}`).value = "";
             document.getElementById(`textarea${i}`).readOnly = false;
@@ -14,14 +15,23 @@ function process_line(line) {
     } 
     //If the line starts with "echo ", the message is printed to the next line
     if (line.startsWith("echo ")) {
-        let message = line.substring(5);
-        for (let i = 1; i <= 100; i++) {
+        let message = ">" + line.substring(5);
+        let i;
+        for (i = 1; i <= 100; i++) {
+            if(i> 98){
+                alert("You have reached the maximum number of lines, the terminal is being cleared");
+                process_line("clear");
+                break;
+            }
+            console.log(document.getElementById(`textarea${i}`).value);
             if (document.getElementById(`textarea${i}`).value === line) {
                 document.getElementById(`textarea${i + 1}`).value = message;
                 document.getElementById(`textarea${i + 1}`).readOnly = true;
                 break;
             }
+            
         }
+        document.getElementById(`textarea${i + 2}`).focus();
     }
     if (line == "exit"){
         window.close();
@@ -44,18 +54,24 @@ function process_line(line) {
         }
         
     if (line === "help") {
-        let helpMessage = "Available commands: clear, echo <message>, exit, cd <path>, help, about, contact, sl, ls";
+        let helpMessage = "> Available commands: clear, echo <message>, exit, cd <path>, help, about, contact, sl, ls";
         for (let i = 1; i <= 100; i++) {
+            if(i> 98){
+                alert("You have reached the maximum number of lines, the terminal is being cleared");
+                process_line("clear");
+                break;
+            }
             if (document.getElementById(`textarea${i}`).value === line) {
                 document.getElementById(`textarea${i + 1}`).value = helpMessage;
                 document.getElementById(`textarea${i + 1}`).readOnly = true;
                 document.getElementById(`textarea${i + 2}`).focus();
                 break;
             }
+
         }
     }
     if (line === "about") {
-        let about = "This terminal allows you to navigate my GitHub Pages. You can use commands like 'cd <path>' to navigate to different directories, 'ls' to list directories, 'echo <message>' to print a message, 'clear' to clear the terminal, 'exit' to close the terminal, 'help' to display available commands, and 'contact' to get my contact information.";
+        let about = "> This terminal allows you to navigate my GitHub Pages. You can use commands like 'cd <path>' to navigate to different directories, 'ls' to list directories, 'echo <message>' to print > a message, 'clear' to clear the terminal, 'exit' to close the terminal, 'help' to display available commands, and 'contact' to get my contact information.";
         let aboutLines = about.split(' ').reduce((acc, word, index) => {
             if (index % 30 === 0) acc.push([]);
             acc[acc.length - 1].push(word);
@@ -64,6 +80,11 @@ function process_line(line) {
         
         for (let i = 1; i <= 100; i++) {
             if (document.getElementById(`textarea${i}`).value === line) {
+                if(i> 98){
+                    alert("You have reached the maximum number of lines, the terminal is being cleared");
+                    process_line("clear");
+                    break;
+                }
                 aboutLines.forEach((aboutLine, index) => {
                     document.getElementById(`textarea${i + 1 + index}`).value = aboutLine;
                     document.getElementById(`textarea${i + 1 + index}`).readOnly = true;
@@ -74,14 +95,19 @@ function process_line(line) {
         }
     }
     if (line==="contact"){
-        let contactInfo = "You can reach me at: https://github.com/tbperson";
+        let contactInfo = "> You can reach me at: https://github.com/tbperson";
         for (let i = 1; i <= 100; i++) {
+            if(i> 98){
+                alert("You have reached the maximum number of lines, the terminal is being cleared");
+                process_line("clear");
+                break;
+            }
             if (document.getElementById(`textarea${i}`).value === line) {
                 document.getElementById(`textarea${i + 1}`).value = contactInfo;
                 document.getElementById(`textarea${i + 1}`).readOnly = true;
                 break;
             }
-            document.getElementById(`textarea${i + 1 + aboutLines.length}`).focus();
+            document.getElementById(`textarea${i + 2}`).focus();
             break;
         }
     }
