@@ -7,7 +7,7 @@ function update_time() {
 function process_line(line) {
     if (line === "clear") {
         
-        for (let i = 1; i <= 100; i++) {
+        for (let i = 0; i <= 100; i++) {
             document.getElementById(`textarea${i}`).value = "";
             document.getElementById(`textarea${i}`).readOnly = false;
         }
@@ -17,7 +17,7 @@ function process_line(line) {
     if (line.startsWith("echo ")) {
         let message = ">" + line.substring(5);
         let i;
-        for (i = 1; i <= 100; i++) {
+        for (i = 0; i <= 100; i++) {
             if(i> 98){
                 alert("You have reached the maximum number of lines, the terminal is being cleared");
                 process_line("clear");
@@ -55,7 +55,7 @@ function process_line(line) {
         
     if (line === "help") {
         let helpMessage = "> Available commands: clear, echo <message>, exit, cd <path>, help, about, contact, sl, ls";
-        for (let i = 1; i <= 100; i++) {
+        for (let i = 0; i <= 100; i++) {
             if(i> 98){
                 alert("You have reached the maximum number of lines, the terminal is being cleared");
                 process_line("clear");
@@ -115,7 +115,7 @@ function process_line(line) {
         jumpscare();
     }
     if (line === "ls") {
-        for (let i = 1; i <= 100; i++) {
+        for (let i = 0; i <= 100; i++) {
             if (document.getElementById(`textarea${i}`).value === line) {
                 if (i > 96) {
                     alert("You have reached the maximum number of lines, the terminal is being cleared");
@@ -137,7 +137,7 @@ function process_line(line) {
                     .map(item => item.name);
                 let folderList = folders.filter(folder => folder !== '.github').join(' | ');
                 console.log("Parsed folders:", folderList);
-                for (let i = 1; i <= 100; i++) {
+                for (let i = 0; i <= 100; i++) {
                     if (document.getElementById(`textarea${i}`).value === line) {
                         document.getElementById(`textarea${i + 1}`).value = "Here are the directories:";
                         document.getElementById(`textarea${i + 1}`).readOnly = true;
@@ -150,7 +150,7 @@ function process_line(line) {
             })
             .catch(error => {
                 console.error("Error fetching directory listing:", error);
-                for (let i = 1; i <= 100; i++) {
+                for (let i = 0; i <= 100; i++) {
                     if (document.getElementById(`textarea${i}`).value === line) {
                         document.getElementById(`textarea${i + 1}`).value = `Error: ${error.message}`;
                         document.getElementById(`textarea${i + 1}`).readOnly = true;
@@ -177,7 +177,7 @@ function jumpscare() {
 setInterval(update_time, 500);
 
 
-for (let i = 1; i <= 100; i++) {
+for (let i = 1; 0 <= 100; i++) {
     document.write(`<input type="text" id="textarea${i}" style="display: block; width: 100%; margin-bottom: 5px; border: none; outline: none; color: white; background-color: transparent" autocomplete="off">`);
     let textarea = document.getElementById(`textarea${i}`);
     textarea.addEventListener('keypress', function(event) {
