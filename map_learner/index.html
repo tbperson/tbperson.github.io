@@ -303,10 +303,10 @@
                         let good_audio = new Audio('right.mp3');
                         good_audio.play();
                         layer.setStyle({
-                            fillColor: 'green')};
-                        
+                            fillColor: 'green'});
+
+                        setTimeout(() => {}, 3000);
                         play(generateCountry());
-                        wait(3000);
                     } else {
                         alert("That's not " + targetCountry + ". Try again!");
                         let bad_audio = new Audio('wrong.mp3');
