@@ -302,8 +302,11 @@
                         alert("Correct! You found " + targetCountry);
                         let good_audio = new Audio('right.mp3');
                         good_audio.play();
+                        layer.setStyle({
+                            fillColor: 'green')};
+                        
                         play(generateCountry());
-
+                        wait(3000);
                     } else {
                         alert("That's not " + targetCountry + ". Try again!");
                         let bad_audio = new Audio('wrong.mp3');
