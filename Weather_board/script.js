@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 //Log the latitude and longitude so i can use the knockoff google maps later
                 console.log("Coordinates of location" + lat,long);
-                console.log(url)
+                console.log(url);
 
                 hourly_temps.push(data.main.temp);
                 hours.push(data.dt);
