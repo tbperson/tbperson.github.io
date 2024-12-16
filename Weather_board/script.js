@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 console.log("Coordinates of location" + lat,long);
                 console.log(url);
 
-                // Format the time to be similar to other labels
+                // Format the time to be similar to other
                 const currentTime = new Date();
                 const hoursFormatted = currentTime.getHours() % 12 || 12;
                 const minutesFormatted = currentTime.getMinutes().toString().padStart(2, '0');
@@ -49,7 +49,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 const formattedTime = `${hoursFormatted}:${minutesFormatted} ${ampm}`;
                                 
                 hours.push(formattedTime);
-
                 hourly_temps.push(data.main.temp);
 
                 document.getElementById('location').innerText = `Location: ${data.name}`;
@@ -59,12 +58,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 document.getElementById('windSpeed').innerText = `Wind Speed: ${data.wind.speed} m/s`;
 
                 map.setCenter({ lat: lat, lng: long });
-                map.setZoom(20);
+                map.setZoom(15);
             })
-            .catch(error => {
-                console.error('Error fetching weather data:', error);
-                alert('Failed to fetch weather data. Please try again.');
-            });
 
         fetch(forecastUrl)
             .then(response => response.json())
