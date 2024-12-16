@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 console.log(url);
 
                 hourly_temps.push(data.main.temp);
-                hours.push(data.dt);
+                hours.push("15:39");
 
                 document.getElementById('location').innerText = `Location: ${data.name}`;
                 document.getElementById('temperature').innerText = `Temperature: ${data.main.temp} °C`;
