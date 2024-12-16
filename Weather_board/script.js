@@ -41,8 +41,16 @@ document.addEventListener('DOMContentLoaded', function() {
                 console.log("Coordinates of location" + lat,long);
                 console.log(url);
 
+                // Format the time to be similar to other labels
+                const currentTime = new Date();
+                const hoursFormatted = currentTime.getHours() % 12 || 12;
+                const minutesFormatted = currentTime.getMinutes().toString().padStart(2, '0');
+                const ampm = currentTime.getHours() >= 12 ? 'PM' : 'AM';
+                const formattedTime = `${hoursFormatted}:${minutesFormatted} ${ampm}`;
+                                
+                hours.push(formattedTime);
+
                 hourly_temps.push(data.main.temp);
-                hours.push("15:39");
 
                 document.getElementById('location').innerText = `Location: ${data.name}`;
                 document.getElementById('temperature').innerText = `Temperature: ${data.main.temp} °C`;
