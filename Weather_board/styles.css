@@ -1,0 +1,57 @@
+#weatherContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 25%;
+    height: 100%;
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+}
+#weatherContainer h1 {
+    margin-top: 0;
+}
+#weatherContainer form {
+    margin-top: 10px;
+}
+#cityForm button{
+    margin: 0;
+    border: none;
+    font-size: 16px;
+    background: #28a745;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+#mapContainer {
+    position: absolute;
+    top: 0;
+    left: 25%;
+    width: 75%;
+    height: 100%;
+    background-color:   black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+#sliderBar
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 15%;
+    height: 10%;
+    background-color: white;
+    z-index: 2;
+    border-radius: 10px;
+}
+#graphContainer {
+    width: 95%;
+    height: 60%;
+    position: relative;
+    bottom: 0%;
+}
