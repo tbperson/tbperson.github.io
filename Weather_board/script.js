@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 document.getElementById('windSpeed').innerText = `Wind Speed: ${data.wind.speed} m/s`;
 
                 map.setCenter({ lat: lat, lng: long });
-                map.setZoom(15);
+                map.setZoom(10);
             })
 
         fetch(forecastUrl)
