@@ -1,0 +1,166 @@
+@keyframes gradientAnimation {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-image: linear-gradient(135deg, #00c6ff, #0072ff, #00ff6a, #00bfa5);
+            background-size: 400% 400%;
+            animation: gradientAnimation 15s ease infinite;
+            color: white;
+        }
+        .top-bar {
+            background-color:  rgba(128, 128, 128, 0.5);
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        .top-bar button {
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-left: 10px;
+        }
+        .top-bar button:hover {
+            background-color: #0056b3;
+        }
+        .footer {
+            background-color: rgba(241, 241, 241, 0.8);
+            padding: 10px;
+            text-align: center;
+            color: #333;
+        }
+        .content {
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            max-width: 800px;
+            margin: 20px auto;
+            color: #333;
+        }
+        h1 {
+            text-align: center;
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        label {
+            font-weight: bold;
+        }
+        input[type="number"] {
+            padding: 5px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100px;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ccc;
+        }
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 1.2em;
+            font-weight: bold;
+            text-align: center;
+        }
+        .dark-mode {
+            background-image: linear-gradient(135deg, #333, #444, #555, #666);
+        }
+        .dark-mode .content {
+            background-color: #333;
+            color: white;
+        }
+        .dark-mode .footer {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+        .dark-mode input[type="number"] {
+            background-color: #333;
+            color: white;
+            border: 1px solid #555;
+        }
+        .dark-mode table, .dark-mode th, .dark-mode td {
+            border: 1px solid #555;
+        }
+        .dark-mode th {
+            background-color: #333;
+        }
+        .dark-mode p, .dark-mode label {
+            color: white;
+        }
+        .dark-mode button {
+            background-color: #0056b3;
+        }
+        .dark-mode button:hover {
+            background-color: #007bff;
+        }
+        .dark-mode .top-bar button {
+            background-color: #007bff;
+        }
+        .dark-mode h1 {
+            color: white;
+        }
+        .toggle-dark-mode {
+            position: relative;
+            width: 50px;
+            height: 25px;
+            background-color: #007bff;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .toggle-dark-mode .icon {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            border-radius: 50%;
+            transition: left 0.3s ease;
+        }
+        .toggle-dark-mode .icon.sun {
+            left: 5px;
+        }
+        .toggle-dark-mode .icon.moon {
+            left: 25px;
+        }

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="styles.css">
+    </head>
+
+  <body>
+    <div class="topnav" style="font-size: 2em;">
+        <button onclick="location.href='index.html'">Home</button>
+        <button onclick="location.href='about.html'">About</button>
+        <button onclick="location.href='contact.html'">Contact</button>
+    </div>
+
+
+    <div class="container" style="margin-top: 5vh;">
+        <h1>Welcome to my web OS</h1>
+        <h2> IT'S REAPER O'CLOCK</h2>
+        <img src="reaper_oclock.png">
+
+    </div>  
+      </section>
+    <script>
+        const img = document.querySelector('.container img');
+        const h2 = document.querySelector('.container h2');
+        var currentTime = new Date().toLocaleString();
+
+
+
+
+        img.style.display = 'none';
+        h2.style.display = 'none';
+        document.querySelector('.container').addEventListener('click', () => {
+            img.style.display = 'block';
+            h2.style.display = 'block';
+            setTimeout(() => {
+            img.style.display = 'none';
+            h2.style.display = 'none';
+            }, 5000);
+        });
+
+
+        function update_time() {
+            currentTime = new Date().toLocaleString();
+            document.querySelector('.container h2').textContent = currentTime;
+        }
+        
+    </script>
+  </body>
+
+</html>

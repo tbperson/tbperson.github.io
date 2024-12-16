@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- HERE JavaScript Libs & Style Sheets-->
+    <link rel="stylesheet" type="text/css" href="https://js.api.here.com/v3/3.1/mapsjs-ui.css" />
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-core.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-service.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-ui.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-mapevents.js"></script>
+    <!-- HERE JavaScript Libs & Style Sheets end-->
+    <title>Marker anywhere</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+
+<body>
+    <!--In the div HERE Map will be rendered-->
+    <div id="mapContainer"></div>
+    <div id="popup">
+        <label for="lat">Latitude:</label>
+        <input type="text" id="lat" value="19.741755">
+        <label for="lng">Longitude:</label>
+        <input type="text" id="lng" value="-155.844437">
+        <button onclick="updateMarker()">Update Marker</button>
+        <button onclick="toggle_site()">Toggle location</button>
+    </div>
+        <div id="search">
+            <label for="searchInput">Search:</label>
+            <iframe src="https://gps-coordinates.org/" width="100%" height="100%"></iframe>
+        </div>
+    
+    <script src="script.js"></script>
+</body>
+
+</html>

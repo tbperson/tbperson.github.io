@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html> 
+<head>
+<title>Tully monster</title>
+
+</head> 
+<link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+
+<body>
+<div id="navigator">
+<button onclick="window.location.href='info.html'">Info</button>
+<button onclick="window.location.href='index.html'">Home</button>
+<button onclick="window.location.href='artwork.html'">Artwork</button>
+</div>
+<div id="main">
+    <div id="sidebar-left">
+        <marquee direction="up" behavior="alternate" height="100%">
+            
+            <p>The tully monster is alive today, with over 1000 sightings a year</p>
+            <p>The tully monster is alive today, with over 1000 sightings a year</p>
+            <p>The tully monster is alive today, with over 1000 sightings a year</p>
+            <button onclick="cheat()"">cheat</button>
+            <p>The tully monster is alive today, with over 1000 sightings a year</p>
+            <p>The tully monster is alive today, with over 1000 sightings a year</p>
+            <p>The tully monster is alive today, with over 1000 sightings a year</p>
+            <p>The tully monster is alive today, with over 1000 sightings a year</p>
+            <p>The tully monster is alive today, with over 1000 sightings a year</p>
+            <p>The tully monster is alive today, with over 1000 sightings a year</p>
+            <p>The tully monster is alive today, with over 1000 sightings a year</p>
+            <p>The tully monster is alive today, with over 1000 sightings a year</p>
+            <p>The tully monster is alive today, with over 1000 sightings a year</p>
+            <p>The tully monster is alive today, with over 1000 sightings a year</p>
+        </marquee>
+    </div>
+    <div id="title">
+        <h1>Tully Monster</h1>
+    </div>
+    <div id="quiz">
+        <div id="form">
+        <form>
+            <label for="question1">1. What is the scientific name of the Tully Monster?</label><br>
+            <input type="text" id="question1" name="question1"><br><br>
+
+            <label for="question2">2. In which state was the Tully Monster first discovered?</label><br>
+            <input type="text" id="question2" name="question2"><br><br>
+
+            <label for="question3">3. What is the estimated length of the Tully Monster?</label><br>
+            <input type="text" id="question3" name="question3"><br><br>
+
+            <label for="question4">4. During which geological period did the Tully Monster live?</label><br>
+            <input type="text" id="question4" name="question4"><br><br>
+
+            <label for="question5">5. What unique feature distinguishes the Tully Monster from other prehistoric creatures?</label><br>
+            <input type="text" id="question5" name="question5"><br><br>
+
+            <input type="submit" value="Submit">
+            
+        </form>
+        
+    </div>
+    </div>
+            <script>
+            function cheat() {
+                alert('The answers are: \n1. Tullimonstrum gregarium\n2. Illinois\n3. about 12 to 14 inches\n4. Carboniferous\n5. Its unique proboscis with a claw-like structure');
+            }
+            document.querySelector('form').addEventListener('submit', function(event) {
+                event.preventDefault();
+                let score = 0;
+                const answers = {
+                    question1: 'Tullimonstrum gregarium',
+                    question2: 'Illinois',
+                    question3: 'about 12 to 14 inches',
+                    question4: 'Carboniferous',
+                    question5: 'Its unique proboscis with a claw-like structure'
+                };
+
+                for (let question in answers) {
+                    if (document.getElementById(question).value.trim().toLowerCase() === answers[question].toLowerCase()) {
+                        score++;
+                    }
+                }
+
+                alert('You scored ' + score + ' out of 5.');
+            });
+            </script>
+        </form>
+    </div>
+
+</div>
+</body>
+</html>

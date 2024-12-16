@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Function Grapher</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/9.4.4/math.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-zoom@1.0.0"></script>
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="top-bar">
+        <h1>Graph Functions of x</h1>
+        <button class="toggle-button" onclick="toggleDarkMode()">Toggle Dark Mode</button>
+        <button class="syntax-button" onclick="toggleSyntax()">Show Syntax</button>
+    </div>
+    <div class="container">
+        <div class="input-container">
+            <input type="text" id="functionInput" placeholder="Enter first function of x, e.g., x^2" aria-label="First function of x">
+            <input type="text" id="functionInput2" placeholder="Enter second function of x, e.g., x^3" aria-label="Second function of x">
+            <input type="text" id="functionInput3" placeholder="Enter third function of x, e.g., sin(x)" aria-label="Third function of x">
+            <div class="scale-inputs">
+                <input type="number" id="xScale" placeholder="Enter x-axis scale, e.g., 10" aria-label="X-axis scale">
+                <input type="number" id="yScale" placeholder="Enter y-axis scale, e.g., 10" aria-label="Y-axis scale">
+            </div>
+            <button onclick="updateGraph()">Graph Functions</button>
+            <button onclick="resetGraph()">Reset</button>
+        </div>
+        <canvas id="functionGraph" width="800" height="400"></canvas>
+        <div id="errorMessage" class="error-message" role="alert"></div>
+        <div class="iframe-container" id="iframeContainer">
+            <iframe src="https://mathjs.org/docs/expressions/syntax.html" width="800" height="400" title="MathJS Syntax"></iframe>
+        </div>
+    </div>
+</body>
+</html>

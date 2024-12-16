@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A level Geography statistical tests</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="top-bar">
+        <div class="toggle-dark-mode" onclick="toggleDarkMode()">
+            <div class="icon sun"><i class="fas fa-sun"></i></div>
+            <div class="icon moon" style="display: none;"><i class="fas fa-moon"></i></div>
+        </div>
+        <button onclick="showSpearman()">Spearman's Rank</button>
+        <button onclick="showChiSquare()">Chi-Square Test</button>
+    </div>
+    <div id="spearman-section" class="content" style="display: none;">
+        <h1>Spearman's Rank Correlation Calculator</h1>
+        <label for="n-values">Number of values (n):</label>
+        <input type="number" id="n-values" min="1" value="5">
+        <br><br>
+        <button onclick="generateTable()">Generate Table</button>
+        <br><br>
+        <table id="values-table">
+            <thead>
+                <tr>
+                    <th>X Values</th>
+                    <th>Y Values</th>
+                    <th>Rank X</th>
+                    <th>Rank Y</th>
+                    <th>d</th>
+                    <th>d^2</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Table rows will be generated here -->
+            </tbody>
+        </table>
+        <br><br>
+        <button onclick="calculateSpearmanRank()">Calculate</button>
+        <br><br>
+        <div id="result"></div>
+    </div>
+    <div id="chi-square-section" class="content" style="display: none;">
+        <h1>Chi-Square Test Calculator</h1>
+        <label for="rows">Number of rows:</label>
+        <input type="number" id="rows" min="1" value="2">
+        <label for="columns">Number of columns:</label>
+        <input type="number" id="columns" min="1" value="2">
+        <br><br>
+        <button onclick="generateChiSquareTable()">Generate Table</button>
+        <br><br>
+        <table id="chi-square-table">
+            <thead>
+                <tr>
+                    <!-- Table headers will be generated here -->
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Table rows will be generated here -->
+            </tbody>
+        </table>
+        <br><br>
+        <button onclick="calculateChiSquare()">Calculate</button>
+        <br><br>
+        <div id="chi-square-result"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

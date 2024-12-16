@@ -1,0 +1,248 @@
+body {
+    background-image: url('assets/ghost_leviathan.png');
+    background-size: cover;
+    text-align: center; 
+}
+div.small-box {
+    font-size: 0.8em;
+    text-align: center;
+    width: 5vw;
+    height: 5vh;
+    position: absolute;
+    top: 6vh;
+    left: 1vw;
+}
+div.small-box2 {
+    font-size: 0.8em;
+    text-align: center;
+    width: 5vw;
+    height: 5vh;
+    position: absolute;
+    top: 22vh;
+    left: 1vw;
+}
+div.small-box3 {
+    font-size: 0.8em;
+    text-align: center;
+    width: 5vw;
+    height: 5vh;
+    position: absolute;
+    top: 38vh;
+    left: 1vw;
+}
+
+.topnav {
+    background-color: rgba(64, 64, 64, 0.75);
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    left: 0; 
+    height: 5vh;
+    width: 100%;
+}
+.topnav button{
+    background-color: grey;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: black;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.about-page {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    padding: 20px;
+    margin: 20px auto;
+    width: 80%;
+    height: 50vh;
+    max-width: 800px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    display: none;
+}
+.about-page-bar {
+    background-color: rgba(64, 64, 64, 0.75);
+    display: flex;
+    justify-content: flex-start; 
+    align-items: center;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 5vh;
+    width: 100%;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+.about-page-bar h1 {
+    color: black;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-align: center;
+    width: 100%;
+}
+.about-page-bar button{
+    background-color: red;
+    border: none;
+    color: white;
+    padding: 10px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1em;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.about-page-wiki-embed {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 5vh;
+    width: 100%;
+    height: 95%;
+ 
+}
+.welcome-page {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    padding: 20px;
+    margin: 20px auto;
+    width: 40%;
+    height: auto;
+    max-width: 800px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+
+}
+.welcome-page-bar {
+    background-color: rgba(64, 64, 64, 0.75);
+    display: flex;
+    justify-content: flex-start; 
+    align-items: center;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 5vh;
+    width: 100%;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+.welcome-page-bar h1 {
+    color: black;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-align: center;
+    width: 100%;
+}
+.welcome-page-bar button{
+    background-color: red;
+    border: none;
+    color: white;
+    padding: 10px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1em;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.welcome-page-main-content {
+    margin-top: 6vh;
+}
+.contact-page {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    padding: 20px;
+    margin: 20px auto;
+    width: 40%;
+    height: auto;
+    max-width: 800px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    display: none;
+}
+.contact-page-bar {
+    background-color: rgba(64, 64, 64, 0.75);
+    display: flex;
+    justify-content: flex-start; 
+    align-items: center;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 5vh;
+    width: 100%;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+.contact-page-bar h1 {
+    color: black;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-align: center;
+    width: 100%;
+}
+.contact-page-bar button{
+    background-color: red;
+    border: none;
+    color: white;
+    padding: 10px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1em;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.contact-page-main-content {
+    margin-top: 6vh;
+}
+p,h1,h2,h3,h4,h5,h6 {
+    color: black;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
