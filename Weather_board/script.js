@@ -69,7 +69,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 const forecastDiv = document.createElement('div');
                 forecastDiv.id = 'forecast';
                 forecastDiv.innerHTML = '<h2>Hourly Forecast</h2>';
-                hours = [];
 
                 data.list.slice(0, 5).forEach(hourData => {
                     const date = new Date(hourData.dt * 1000);
