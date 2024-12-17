@@ -9,6 +9,7 @@ let api_key = "e5250a755143b7c2a8a9d80266a3ae77";
                 // Fetch the current weather data
                 const weatherResponse = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${api_key}&units=metric`);
                 if (!weatherResponse.ok) {
+                    alert("City not found");
                     throw new Error('City not found');
                 }
 
@@ -247,10 +248,6 @@ let api_key = "e5250a755143b7c2a8a9d80266a3ae77";
                 document.getElementById('weatherDescription').style.display = 'none';
             }
         }
-
-        window.onload = () => {
-            fetchData();
-        };
 
 
 
