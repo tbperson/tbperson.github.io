@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Weather Data</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="top-bar">
+        <h1>Weather</h1>
+        <div class="input-container">
+            <input type="text" id="location" placeholder="Enter city name" value="">
+            <button onclick="fetchData()">Get Weather</button>
+        </div>
+    </div>
+    
+    <div class="content">
+        <div class="graphs-container">
+            <div class="graph" id="graph1">
+                <canvas id="weatherChart"></canvas>
+            </div>
+            <div class="graph" id="graph2">
+                <canvas id="humidityChart"></canvas>
+            </div>
+        </div>
+        <div class="circle-container-wrapper" id="circle-container">
+            <div class="weather-icon-container">
+                <img id="weatherIcon" class="weather-icon" src="" alt="Weather Icon" style="display: none;">
+            </div>
+            <div id="temperatureCircle" class="circle temperature-circle" style="display: none;">
+                <span id="temperatureValue"></span>
+                <div class="circle-title">Temperature</div>
+            </div>
+            <div id="feels-like-circle" class="circle feels-like-circle" style="display: none;">
+                <span id="feelsLikeValue"></span>
+                <div class="circle-title">Feels Like</div>
+            </div>
+            <div id="humidityCircle" class="circle humidity-circle" style="display: none;">
+                <span id="humidityValue"></span>
+                <div class="circle-title">Humidity</div>
+            </div>
+            <div id="windCircle" class="circle wind-circle" style="display: none;">
+                <span id="windValue"></span>
+                <div class="circle-title">Wind</div>
+            </div>
+            <div id="pressureCircle" class="circle pressure-circle" style="display: none;">
+                <span id="pressureValue"></span>
+                <div class="circle-title">Pressure</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
