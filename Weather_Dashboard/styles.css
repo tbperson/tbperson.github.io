@@ -1,3 +1,14 @@
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
 body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -8,9 +19,12 @@ body {
             flex-direction: column;
             height: 100vh;
             align-items: center;
+            background-image: linear-gradient(135deg, rgba(255, 69, 0, 0.1), rgba(0, 191, 255, 0.1), rgba(50, 205, 50, 0.1), rgba(255, 165, 0, 0.1), rgba(255, 105, 180, 0.1));
+            background-size: 400% 400%;
+            animation: gradientAnimation 15s ease infinite;
         }
         .top-bar {
-            background-color: #2c3e50;
+            background-color: rgba(44, 62, 80, 0.2);
             color: white;
             padding: 1vh 2vh;
             display: flex;
@@ -19,7 +33,7 @@ body {
             box-shadow: 0 0.2vh 0.4vh rgba(0, 0, 0, 0.2);
             width: 100%;
             height: 10%;
-            border-bottom: 0.5vh solid #34495e;
+            border-bottom: 0.5vh solid rgba(52, 73, 94, 0.3);
             position: relative;
         }
         .top-bar h1 {
@@ -31,7 +45,7 @@ body {
         }
         .top-bar .input-container {
             position: absolute;
-            right: 2vh;
+            right: 5vh;
             display: flex;
             align-items: center;
         }
@@ -58,6 +72,24 @@ body {
         }
         .top-bar button:hover {
             background-color: #0056b3;
+            transform: scale3d(1.05, 1.05, 1.05);
+        }
+        .button_bar{
+            position: absolute;
+            display: flex;
+            gap: 2vh;
+            padding: 3vh;
+            left: 0;
+        }
+        .button_bar button {
+            padding: 0.5vh 2vh;
+            font-size: 1.6vh;
+            background-color: green;
+            color: white;
+            border: none;
+            border-radius: 0.5vh;
+            cursor: pointer;
+            transition: background-color 0.3s;
         }
         .content {
             display: flex;
@@ -71,26 +103,34 @@ body {
             justify-content: space-between;
             width: 100%;
             height: 50%;
+            margin-bottom: 5vh;
+        }
+        .graphs-container2 {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            height: 50%;
+            margin-bottom: 5vh;
         }
         .graph {
             width: 48%;
             border-radius: 10px;
             height: 100%;
-            margin: 10px;
-            background-color: #2c3e50;
+            background-color: rgba(44, 62, 80, 0.2);
             padding: 1vh;
+    
         }
         .circle-container-wrapper {
             display: flex;
             justify-content: center;
             gap: 4vh;
             flex-wrap: wrap;
-            background-color: #2c3e50;
+            background-color: rgba(44, 62, 80, 0.2);
             padding: 2vh;
             border-radius: 1vh;
             width: 100%;
             margin-top: auto;
-            border: 0.5vh solid #34495e;
+            border: 0.5vh solid rgba(52, 73, 94, 0.3);
         }
         .circle {
             width: 25vh;
@@ -107,6 +147,8 @@ body {
         }
         .circle:hover {
             transform: scale3d(1.1, 1.1, 1.1);
+            border: 0.8vh solid;
+            transition: transform 0.5s;
         }
         .temperature-circle {
             border-color: #ff4500;
@@ -146,4 +188,8 @@ body {
             border: 0.4vh solid #fff;
             border-radius: 50%;
             height: 25vh;
+        }
+        em{
+            color: white;
+            text-shadow: 0 0 5px #007BFF;
         }
