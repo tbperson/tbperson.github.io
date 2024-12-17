@@ -48,30 +48,41 @@ body {
             right: 5vh;
             display: flex;
             align-items: center;
+            height: auto;
+            background-color: rgba(44, 62, 80, 0.4);
+            border-radius: 5vh;
+            padding: 1vh;
         }
         .top-bar input {
-            margin-left: 1vh;
-            padding: 0.5vh;
+            margin: 8px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            padding-left: 20px;
+            padding-right: 20px;
             font-size: 1.6vh;
             border: none;
-            border-radius: 0.5vh;
+            border-radius: 5vh;
             outline: none;
-            background-color: #34495e;
-            color: white;
+            background-color: #2C2F33;
+            color: #A0A0A0;
+            border: 0.2vh solid #64B5F6;
         }
         .top-bar button {
-            margin-left: 1vh;
-            padding: 0.5vh 1vh;
+            margin: 8px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            padding-left: 20px;
+            padding-right: 20px;
             font-size: 1.6vh;
-            background-color: #007bff;
+            background-color: #2196F3;
             color: white;
             border: none;
-            border-radius: 0.5vh;
+            border-radius: 5vh;
             cursor: pointer;
             transition: background-color 0.3s;
         }
         .top-bar button:hover {
-            background-color: #0056b3;
+            background-color: #64B5F6;
             transform: scale3d(1.05, 1.05, 1.05);
         }
         .button_bar{
@@ -79,15 +90,23 @@ body {
             display: flex;
             gap: 2vh;
             padding: 3vh;
-            left: 0;
+            left: 5vh;
+            margin: 0;
+            background-color: rgba(44, 62, 80, 0.4);
+            padding: 1.1vh;
+            border-radius: 5vh;
         }
         .button_bar button {
-            padding: 0.5vh 2vh;
+            margin: 8px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            padding-left: 20px;
+            padding-right: 20px;
             font-size: 1.6vh;
             background-color: green;
             color: white;
             border: none;
-            border-radius: 0.5vh;
+            border-radius: 5vh;
             cursor: pointer;
             transition: background-color 0.3s;
         }
