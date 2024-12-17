@@ -6,10 +6,19 @@
 </head>
 <body>
     <div class="top-bar">
-        <h1>Weather</h1>
+        <div class="button_bar">
+            <button onclick="toggleGraph1()" id="toggleGraph1Button">1</button>
+            <button onclick="toggleGraph2()" id ="toggleGraph2Button">2</button>
+            <button onclick="toggleGraph3()" id="toggleGraph3Button">3</button>
+            <button onclick="toggleGraph4()" id="toggleGraph4Button">4</button>
+            <button onclick="toggleCircles()" id="toggleCirclesButton">X</button>
+   
+        </div>
+        <h1><em>Weather</em></h1>
         <div class="input-container">
             <input type="text" id="location" placeholder="Enter city name" value="">
             <button onclick="fetchData()">Get Weather</button>
+            <button onclick="downloadData()" id="DownloadDataButton">Download data</button>
         </div>
     </div>
     
@@ -20,6 +29,14 @@
             </div>
             <div class="graph" id="graph2">
                 <canvas id="humidityChart"></canvas>
+            </div>
+        </div>
+        <div class="graphs-container2">
+            <div class="graph" id="graph3">
+                <canvas id="precipitationChart"></canvas>
+            </div>
+            <div class="graph" id="graph4">
+                <canvas id="windChart"></canvas>
             </div>
         </div>
         <div class="circle-container-wrapper" id="circle-container">
