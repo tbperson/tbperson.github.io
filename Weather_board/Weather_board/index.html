@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Weather board</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <script src="https://js.api.here.com/v3/3.1/mapsjs-core.js"></script>
+    <script src="https://js.api.here.com/v3/3.1/mapsjs-service.js"></script>
+    <script src="https://js.api.here.com/v3/3.1/mapsjs-ui.js"></script>
+    <script src="https://js.api.here.com/v3/3.1/mapsjs-mapevents.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</head>
+<body>
+    <div id="weatherContainer">
+        <div id="weather"></div>
+        <form id="cityForm">
+            <input type="text" id="cityInput" placeholder="Enter city name">
+            <button type="submit">Get weather</button>
+            <p id="location">Location:</p>
+            <p id="temperature">Temperature:</p>
+            <p id="weatherDescription">Weather:</p>
+            <p id="humidity">Humidity:</p>
+            <p id="windSpeed">Wind Speed:</p>
+        </form>
+        <button onclick="downloadData()">JSON</button>
+        <button onclick="downloadSpreadsheetData()">Spreadsheet</button>
+        <button onclick="downloadPlainTextData()">Plaintext</button>
+        <div id="graphContainer">
+        </div>
+    </div>
+    <div id="mapContainer">
+        <div id="sliderBar">
+            <input type="range" id="zoomSlider" min="2" max="20" value="10" step="0.2">
+            <p>Zoom: <span id="zoomValue">10</span></p>
+        </div>
+    </div>
+</body>
+</html>

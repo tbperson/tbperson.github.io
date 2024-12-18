@@ -1,0 +1,107 @@
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1e1e1e;
+            color: #f0f0f0;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            align-items: center;
+            background-image: linear-gradient(135deg, rgba(255, 69, 0, 0.1), rgba(0, 191, 255, 0.1), rgba(50, 205, 50, 0.1), rgba(255, 165, 0, 0.1), rgba(255, 105, 180, 0.1));
+            background-size: 400% 400%;
+            animation: gradientAnimation 15s ease infinite;
+        }
+#weatherContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 25%;
+    height: 95%;
+    background-color: rgba(44, 62, 80, 0.2);
+    border: 1vh solid rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5vh;
+}
+#weatherContainer h1 {
+    margin-top: 0;
+}
+#weatherContainer form {
+    margin-top: 10px;
+}
+#weatherContainer button{
+    margin: 8px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 1.6vh;
+    background-color: #2196F3;
+    color: white;
+    border: none;
+    border-radius: 5vh;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+#weatherContainer button hover{
+    background-color: #64B5F6;
+    transform: scale3d(1.05, 1.05, 1.05);
+}
+#mapContainer {
+    position: absolute;
+    top: 1%;
+    left: 28%;
+    width: 72%;
+    height: 98%;
+    background-color: rgba(44, 62, 80, 0.2);
+    box-shadow: 0 0.2vh 0.4vh rgba(0, 0, 0, 0.2);
+    border: 1vh solid rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 3vh;
+    z-index: 1;
+}
+#sliderBar
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 15%;
+    height: 10%;
+    background-color: rgba(44, 62, 80, 0.4);
+    z-index: 2;
+    border-radius: 3.5vh;
+    padding: 4px;
+}
+#sliderBar button{
+    margin: 8px;
+    padding: 8px;
+    padding-left: 16px;
+    padding-right: 16px;
+    font-size: 1.6vh;
+    background-color: #2196F3;
+    color: white;
+    border: none;
+    border-radius: 5vh;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+#graphContainer {
+    width: 95%;
+    height: 60%;
+    position: relative;
+    bottom: 2%;
+}
