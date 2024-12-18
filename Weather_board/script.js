@@ -33,9 +33,10 @@ document.addEventListener('DOMContentLoaded', function() {
         fetch(url)
             .then(response => response.json())
             .then(data => {
-                const weatherDiv = document.getElementById('weather');
                 let lat = data.coord.lat;
                 let long = data.coord.lon;
+
+                window.globalData = data;
 
                 //Log the latitude and longitude so i can use the knockoff google maps later
                 console.log("Coordinates of location" + lat,long);
@@ -68,6 +69,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (existingForecastDiv) {
                     existingForecastDiv.remove();
                 }
+                window.globalForecastData = data;
 
                 const forecastDiv = document.createElement('div');
                 forecastDiv.id = 'forecast';
@@ -124,3 +126,76 @@ document.addEventListener('DOMContentLoaded', function() {
             });
     });
 });
+function downloadData() {
+        // Download the data to a file
+        const data = JSON.stringify(window.globalData);
+        const blob = new Blob([data], { type: 'application/json' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'weather-data.json';
+        a.click();
+    }
+    function downloadSpreadsheetData() {
+        const data = window.globalData;
+        const forecastData = window.globalForecastData;
+
+        if (!data || !forecastData) {
+            alert('No data available to download.');
+            return;
+        }
+
+        let csvContent = 'data:text/csv;charset=utf-8,';
+        csvContent += 'Location,Temperature (°C),Weather,Humidity (%),Wind Speed (m/s)\n';
+        csvContent += `${data.name},${data.main.temp},${data.weather[0].description},${data.main.humidity},${data.wind.speed}\n\n`;
+
+        csvContent += 'Hourly Forecast\n';
+        csvContent += 'Time,Temperature (°C),Description\n';
+
+        forecastData.list.slice(0, 5).forEach(hourData => {
+            const date = new Date(hourData.dt * 1000);
+            const hour = date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+            const temp = hourData.main.temp;
+            const description = hourData.weather[0].description;
+            csvContent += `${hour},${temp},${description}\n`;
+        });
+
+        const encodedUri = encodeURI(csvContent);
+        const link = document.createElement('a');
+        link.setAttribute('href', encodedUri);
+        link.setAttribute('download', 'weather-data.csv');
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    }
+    function downloadPlainTextData() {
+        const data = window.globalData;
+        const forecastData = window.globalForecastData;
+
+        if (!data || !forecastData) {
+            alert('No data available to download.');
+            return;
+        }
+
+        let textContent = `Location: ${data.name}\n`;
+        textContent += `Temperature: ${data.main.temp} °C\n`;
+        textContent += `Weather: ${data.weather[0].description}\n`;
+        textContent += `Humidity: ${data.main.humidity}%\n`;
+        textContent += `Wind Speed: ${data.wind.speed} m/s\n\n`;
+
+        textContent += 'Hourly Forecast:\n';
+        forecastData.list.slice(0, 5).forEach(hourData => {
+            const date = new Date(hourData.dt * 1000);
+            const hour = date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+            const temp = hourData.main.temp;
+            const description = hourData.weather[0].description;
+            textContent += `${hour}: ${temp} °C, ${description}\n`;
+        });
+
+        const blob = new Blob([textContent], { type: 'text/plain' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'weather-data.txt';
+        a.click();
+    }
