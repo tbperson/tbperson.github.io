@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON to CSV Converter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-image: url(https://trustedexecutive.com/wp/wp-content/uploads/2016/06/morpheus-red-pill-blue-pill.jpg);
+            color: #e0e0e0;
+        }
+        .top-bar {
+            background: #1f1f1f;
+            color: #00ff00;
+            padding: 10px 20px;
+            text-align: center;
+            font-size: 1.5em;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background: rgba(31, 31, 31, 0.8);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+        }
+        #jsonInput, #csvOutput {
+            width: 100%;
+            height: 200px;
+            border-radius: 10px;
+            border: 1px solid #00ff00;
+            padding: 10px;
+            box-sizing: border-box;
+            margin-top: 10px;
+            background: #2b2b2b;
+            color: #e0e0e0;
+        }
+        button {
+            padding: 10px 20px;
+            background: #00ff00;
+            color: #121212;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 1em;
+            margin-left: 10px;
+        }
+        button:hover {
+            background: #00cc00;
+        }
+        em {
+            color: #00ff00;
+        }
+    </style>
+</head>
+<body>
+    <div class="top-bar">
+        <div><em>JSON to CSV Converter</em></div>
+        <div>
+            <button onclick="convert()">Convert</button>
+            <button onclick="toggleMode()">Change Convert Mode</button>
+        </div>
+    </div>
+    <div class="container">
+        <h1 id="boxTitle"><em>Convert JSON to CSV</em></h1>
+        <textarea id="jsonInput" placeholder="Paste your JSON here"></textarea>
+        <textarea id="csvOutput" placeholder="Output will appear here" readonly></textarea>
+    </div>
+
+    <script>
+        let isJsonToCsv = true;
+
+        function convert() {
+            if (isJsonToCsv) {
+                convertToCsv();
+            } else {
+                convertToJson();
+            }
+        }
+
+        function toggleMode() {
+            isJsonToCsv = !isJsonToCsv;
+            document.getElementById('boxTitle').innerHTML = isJsonToCsv ? '<em>Convert JSON to CSV</em>' : '<em>Convert CSV to JSON</em>';
+            document.getElementById('jsonInput').placeholder = isJsonToCsv ? 'Paste your JSON here' : 'Paste your CSV here';
+        }
+
+        function convertToCsv() {
+            const jsonInput = document.getElementById('jsonInput').value;
+            try {
+                const jsonArray = JSON.parse(jsonInput);
+                const csvOutput = jsonToCsv(jsonArray);
+                document.getElementById('csvOutput').value = csvOutput;
+                document.getElementById('boxTitle').innerHTML = '<em>CSV Output</em>';
+            } catch (e) {
+                alert('Invalid JSON input');
+            }
+        }
+
+        function convertToJson() {
+            const csvInput = document.getElementById('jsonInput').value;
+            try {
+                const jsonArray = csvToJson(csvInput);
+                document.getElementById('csvOutput').value = JSON.stringify(jsonArray, null, 2);
+                document.getElementById('boxTitle').innerHTML = '<em>JSON Output</em>';
+            } catch (e) {
+                alert('Invalid CSV input');
+            }
+        }
+
+        function jsonToCsv(jsonArray) {
+            const keys = Object.keys(jsonArray[0]);
+            const csvRows = [keys.join(',')];
+
+            for (const row of jsonArray) {
+                const values = keys.map(key => {
+                    const value = row[key];
+                    if (typeof value === 'object' && value !== null) {
+                        return JSON.stringify(value).replace(/"/g, '""');
+                    }
+                    return JSON.stringify(value, replacer);
+                });
+                csvRows.push(values.join(','));
+            }
+
+            return csvRows.join('\n');
+        }
+
+        function csvToJson(csv) {
+            const [headerLine, ...lines] = csv.split('\n');
+            const headers = headerLine.split(',');
+
+            return lines.map(line => {
+                const values = line.split(',');
+                return headers.reduce((object, header, index) => {
+                    object[header] = values[index];
+                    return object;
+                }, {});
+            });
+        }
+
+        function replacer(key, value) {
+            if (typeof value === 'string') {
+                return value.replace(/"/g, '""');
+            }
+            return value;
+        }
+    </script>
+</body>
+</html>
